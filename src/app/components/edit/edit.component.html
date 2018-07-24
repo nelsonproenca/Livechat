@@ -1,0 +1,48 @@
+
+<div class="card">
+    <div class="card-body">
+      <form [formGroup]="angForm" novalidate>
+        <div class="form-group">
+          <label class="col-md-4">Nome:</label>
+          <input type="text" class="form-control" name="nome" formControlName="nome" #nome />
+        </div>
+        <div class="alert alert-danger" *ngIf="angForm.controls['nome'].invalid && (angForm.controls['nome'].dirty || angForm.controls['nome'].touched)" >
+          <div *ngIf="angForm.controls['nome'].errors.required">
+            Nome é requirido.
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4">E-mail:</label>
+          <input type="text" class="form-control" name="email" formControlName="email" #email />
+        </div>
+        <div class="alert alert-danger" *ngIf="angForm.controls['email'].invalid && (angForm.controls['email'].dirty || angForm.controls['email'].touched)" >
+          <div *ngIf="angForm.controls['email'].errors.required">
+            E-mail é requirido.
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4">Telefone:</label>
+          <input type="text" class="form-control" name="telefone" formControlName="telefone" #telefone />
+        </div>
+        <div class="alert alert-danger" *ngIf="angForm.controls['telefone'].invalid && (angForm.controls['telefone'].dirty || angForm.controls['telefone'].touched)" >
+          <div *ngIf="angForm.controls['telefone'].errors.required">
+            Telefone é requirido.
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4">CPF:</label>
+          <input type="text" class="form-control" name="cpf" formControlName="cpf" #cpf />
+        </div>
+        <div class="alert alert-danger" *ngIf="angForm.controls['cpf'].invalid && (angForm.controls['cpf'].dirty || angForm.controls['cpf'].touched)" >
+          <div *ngIf="angForm.controls['cpf'].errors.required">
+            Cpf é requirido.
+          </div>
+        </div>
+        <div class="form-group">
+          <button (click)="updateAdUnit(nome.value, email.value, telefone.value, cpf.value)" [disabled]="angForm.invalid" class="btn btn-primary">
+            Atualizar Consumidor
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
